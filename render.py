@@ -86,11 +86,11 @@ def ic_ship(x, y, w, h):
     # stacked containers
     cols = ['#C0392B', '#2E5D9F', '#D4A017', '#1A9C8F', '#7D3C98']
     cw_, ch_ = 52, 30
-    base = y + h - 78
+    base = y + h - 68
     for row in range(2):
         for i in range(6):
             cx = x + 28 + i * (cw_ + 6)
-            cy = base - row * (ch_ + 4)
+            cy = base - 26 - row * (ch_ + 4)
             d.rectangle([cx, cy, cx + cw_, cy + ch_], fill=cols[(i + row) % 5],
                         outline='#333333', width=2)
     # hull
@@ -252,44 +252,41 @@ ic_ship(lx + 16, top + 44, lw - 32, 130)
 yy = ctext(lx, top + 188, lw, 'US PLANS NEW TARIFFS\nON 14 TRADE PARTNERS',
            F(SB, 36), '#111111', 4)
 yy = ltext(lx + 20, yy + 8, lw - 40,
-           "Trump administration cites 'structural overcapacity' in a new "
-           "Section 301 move. China faces the highest rate; Taiwan up to 15%. "
-           "S&P 500 futures fall 2.1%, Nasdaq 100 down 3.1%.",
+           "The US plans new Section 301 tariffs on 14 countries, with "
+           "Taiwan facing up to 15%. S&P 500 futures fall 2.1%; Nasdaq "
+           "down 3.1%.",
            F(R, 18), '#333333', 5)
 tag(lx, top + r1h - 36, lw, 'US · TRADE', '#2E5D9F')
 
 
-def small_card(x, col, tg, hd, sub, icon, hsz=21):
+def small_card(x, col, tg, hd, sub, icon, hsz=25):
     card(x, top, cw, r1h, col)
     ih = int(r1h * 0.32)
     icon(x + 10, top + 16, cw - 20, ih)
-    yy = wtext(x, top + 24 + ih, cw, hd, F(B, hsz), '#111111', 2)
-    ltext(x + 10, yy + 8, cw - 20, sub, F(R, 14), '#333333', 3)
+    yy = wtext(x + 12, top + 24 + ih, cw - 24, hd, F(SB, hsz), '#111111', 2)
+    ltext(x + 10, yy + 8, cw - 20, sub, F(R, 15), '#333333', 3)
     tag(x, top + r1h - 32, cw, tg, col)
 
 
 small_card(M + (2) * (cw + G), '#8E2A20', 'MIDDLE EAST · ENERGY',
            'HOUTHIS CLAIM STRIKE ON SAUDI REFINERY',
-           "Yemen's Houthis claim an attack on Ras Tanura, Saudi Arabia's "
-           "largest refinery (550,000 barrels a day). The coalition says 4 "
-           "drones were shot down; no casualties reported. Brent +3.5% "
-           "to $94.61; WTI +2% to $83.68.",
+           "Yemen's Houthis claim an attack on Saudi Arabia's Ras Tanura "
+           "refinery (550,000 barrels a day). Brent $94.61; WTI $83.68.",
            ic_refinery)
 
 small_card(M + (3) * (cw + G), '#1A7A4C', 'COLOMBIA',
            'CARTAGENA HOSTAGES ALL FREED',
-           "After a ~17-hour standoff at an Exito supermarket, security "
-           "forces storm in and free every remaining hostage. One gunman is "
-           "killed; 10 people were freed earlier.",
+           "~30 people were taken hostage; 10 were released earlier. All "
+           "remaining hostages have now been freed; one gunman was killed.",
            ic_market)
 
 
-def row2_card(x, w, col, tg, hd, sub, icon, hsz=21):
+def row2_card(x, w, col, tg, hd, sub, icon, hsz=25):
     card(x, top2, w, r2h, col)
     ih = int(r2h * 0.36)
     icon(x + 10, top2 + 16, w - 20, ih)
-    yy = wtext(x, top2 + 24 + ih, w, hd, F(B, hsz), '#111111', 2)
-    ltext(x + 10, yy + 8, w - 20, sub, F(R, 14), '#333333', 3)
+    yy = wtext(x + 12, top2 + 24 + ih, w - 24, hd, F(SB, hsz), '#111111', 2)
+    ltext(x + 10, yy + 8, w - 20, sub, F(R, 15), '#333333', 3)
     tag(x, top2 + r2h - 32, w, tg, col)
 
 
@@ -301,15 +298,14 @@ row2_card(M, cw3, '#7D3C98', 'SOUTH AFRICA',
 
 row2_card(M + cw3 + G, cw3, '#2E5D9F', 'SPACE',
           "FIRST FOREIGN ASTRONAUT ABOARD CHINA'S SPACE STATION",
-          "Pakistan's Muhammad Zeeshan Ali arrives aboard Shenzhou-24 — the "
-          "first foreign astronaut to visit Tiangong.",
+          "A foreign astronaut has entered China's Tiangong space station "
+          "for the first time.",
           ic_rocket)
 
 row2_card(M + 2 * (cw3 + G), cw3 + 1, '#C0392B', 'USA · THANKSGIVING',
           'THANKSGIVING TURKEY PARDON',
-          "At the White House ceremony, a turkey named Feathers runs off "
-          "into the bushes instead of taking the stage. VP JD Vance serves "
-          "troops Thanksgiving meals in Ohio.",
+          "At the White House pardon ceremony, a turkey named Feathers runs "
+          "off into the bushes.",
           ic_turkey)
 
 # ---------- footer ----------
